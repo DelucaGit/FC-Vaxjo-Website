@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+
+# env and secrets
+.env
+.env.*
+!.env.example
+
+# local notes, never push
+LK_POSTS.md
+
+# logs and OS
+npm-debug.log*
+.DS_Store
+Thumbs.db
