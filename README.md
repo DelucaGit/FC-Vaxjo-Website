@@ -1,7 +1,26 @@
 # FC Växjö Website
 
-Public website for FC Växjö. It will be built with Next.js and hosted on Hostinger.
+Public website for FC Växjö. It is separate from the mobile app.
 
-This project is separate from the mobile app (`FC-Vaxjo-Mobile-App`). The app is for club staff and families. This site is what anyone can read in a browser.
+The site is Next.js and is built to plain HTML, so Hostinger can host the `out` folder and search engines can read the text.
 
-Later, the site will read training times, schedules, and matches from the same API the app uses. Until that exists, the pages use the text from the design.
+## Run it on your computer
+
+```bash
+npm install
+npm run dev
+```
+
+Open http://localhost:3000.
+
+## Build the files for Hostinger
+
+```bash
+npm run build
+```
+
+Upload the `out` folder. Before launch, set the real domain in `src/lib/site.ts`. The sitemap and canonical links use that address.
+
+## Where the club facts live
+
+Training times are in `src/data/teams.ts`. Matches are in `src/data/matches.ts`. News text is in `src/data/news.ts`. Later these files are the place to swap in data from the app API.

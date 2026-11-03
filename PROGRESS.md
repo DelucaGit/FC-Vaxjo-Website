@@ -22,3 +22,29 @@ The website and the app ship to different places and on different days. A branch
 **Next**
 
 Scaffold the Next.js app in this folder, then turn the seven Stitch pages into real routes.
+
+## 3 November 2026 — Version 1 pages
+
+**What shipped**
+
+- Next.js app with seven routes: Hem, Nyheter, MatchCamp-artikeln, Träningstider, Om oss, Kontakt, Bli medlem och sponsra.
+- One look on every page: Anton, crimson `#8F1822`, gold, white. Nyheter and Kontakt were drawn with a second font. They now follow Hem.
+- `npm run build` writes plain HTML into `out`, including `sitemap.xml` and `robots.txt`.
+- Each page has its own title, description, and canonical link. The layout adds a SportsOrganization block so search engines can read the club name, address, and founding year.
+- Pictures still use the Google links from Stitch. Generated portraits of named people are not used.
+- Forms open the visitor's email app. The site does not store messages, because Hostinger will only receive HTML files.
+- Galleri, integritetspolicy, stadgar, and styrelse are still not pages.
+
+**Why the data sits in `src/data`**
+
+Training times, matches, and news are plain lists. When the app API is ready, those lists are the only place that needs to change. The pages stay the same.
+
+**Left out on purpose**
+
+- Birth years from the design (P15 as 2015, P16 as 2016) do not match the team names, so they are not on the site.
+- Mirnes has two phone numbers in the design. The team card uses 079-331 91 04. The contact card uses 070-957 11 54. The club needs to confirm one.
+- The April 2026 matches are the design's sample schedule, not a live feed.
+
+**Next**
+
+Replace the Google image links with real photos, confirm phone numbers, then point `src/data` at the API.

@@ -1,0 +1,19 @@
+/**
+ * Temporary pictures from the Stitch design.
+ * Replace these with real club photos when they are ready.
+ * Generated portraits of named people are not used here.
+ */
+export const images = {
+  crest:
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuDy9qrbaqXu5OxFeHj2I3PpNocdLvVvl6XYFlbAogDcxbc0kRC2gXC74QxVGXUzaHm9Z1-CtqP0kVCrOaveVSn6_LvfcivcIhtlyy9kNcZ9XQvMyqA5Yw3eVfqXxskZzBflFIPUgNfLOO_AMVOQfz7d7wjzqn_NeVpjpsMXHyQzTD-M836TqlpOiTvVanrcvlNoVKQWImI4XHXc-9aGQ2YHPogd17nyvcJEhTP9_SNe0QS2rTeK8WEI",
+  indoorMatch:
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuDbbRpveFS1kOhXihZH26e0v5R1p6_Sxy9BcSC0vyz88mOqDIfcS-Y7--y_oQkPQ1E6xVDPZ7gI9n0OYkWjk2HHRvuQStGupfEewD_aLreoKxnKJ8kJFTrg6dI8XI0sHIjEKaYEUSfSbclfh3v8OrI7_tatuPxIm3SsY7nMpyrQA1PLgziBvLPqTaZUlDo7F_nbUUo73GowoOq0SqtqIvDdageYA8EMMyEaUq4hCpk",
+  training:
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuBpaTeTXmJNNB4Xe2fbUSlF9TLVRlsqFbfufI1OuK7o4Tv_8ZkaDbXE2gFGvO7mKevqo59wtatFv3V-nh8m04syQJIgJn0bFGTRYTm22ItFQliAvhEDGaBNzRTyhvCTsK4sJj7Yj4mhEMdVv1KaNwlYvVSY7t-zzt0GfvUri7KHgNZjsLGtwlolFaXLDbzFygOqAyojaGD69UtmirvL6tPZsjQlYPgN9bf3trjrNtU",
+  meeting:
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuCqGlqxPaGrAA67CAM37U8oRUX4mhIIm_AgeUYeOYtNANYorNfVWzS3T8McvAnq8zJQ6LcidB0P5bZAQvZd_SvBmvMxhTwNvoTYzihFwthUf3Ke1B0KL822RYWPpYOEx-G7CwLG5JkDsdwuhdwSH8F7L35XUqMhYmpCtx1d32t-Y7z5j7Twbq4dBNztDbCfyo9QDYAiH8AC0eAZYvYj1Dmn1Timefhp1rZ1oWxkFEw",
+  pitch:
+    "https://lh3.googleusercontent.com/aida/AEtjO1UgjhReRTLsgwcHOh4F3O9mh5nAkOqyLZKDPr-qSYxKDmBoU5n9wiAUXdU7E9P-7gHHSpw-7Y8JlYAm6oFRyuwRC0__1a70jLKewuV1HbmOld2AajU-u31881duB6s1wePcmRDAEWep6kHtOoPr36gVWnkV4PDR4ZhHfvncclod4eaTcQLuyvHBiP0Ee5PBBf171nMxJY_3cpd03J5zE1muIOUvTf1RIAFdRshNgVPl",
+  lake:
+    "https://lh3.googleusercontent.com/aida/AEtjO1VriURNjDthp-ABiX1QC7gMYj9vHr_qCDuiWWRrNQ1Hp-kUHP9TK-CqgHreKmhx4TjxYLUUkHRZd3xcd_P4kF1IML9Bs1nUDro-Y6y1H1p3KkSrtASecLtsMRIuBnxCvxS8mCJZgdE0o9tH3z_hHFyj3YFOxG56AR4DI20o4B7r8RI0bFDgj5vbB19-jmzkV7lKOO-LMfdPkvTs1rWCRqyR-S1WkY6nXZmJBqCTds-i",
+};

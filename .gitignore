@@ -17,3 +17,8 @@ LK_POSTS.md
 npm-debug.log*
 .DS_Store
 Thumbs.db
+
+# tooling
+.vercel
+*.tsbuildinfo
+next-env.d.ts

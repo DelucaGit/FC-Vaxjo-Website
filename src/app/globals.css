@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-crimson: #8f1822;
+  --color-crimson-dark: #680010;
+  --color-crimson-light: #ad2f35;
+  --color-gold: #d97706;
+  --color-gold-dark: #b45309;
+  --color-ink: #1c1917;
+  --color-footer: #0f172a;
+  --font-display: var(--font-anton), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-work), "Segoe UI", sans-serif;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+:focus-visible {
+  outline: 2px solid #8f1822;
+  outline-offset: 3px;
+}
