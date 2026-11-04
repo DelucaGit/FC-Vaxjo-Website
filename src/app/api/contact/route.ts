@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { clubEmailHtml, clubEmailText, type MailRow } from "@/lib/clubEmail";
 import { site } from "@/lib/site";
 
 const MAX_FIELDS = 12;
@@ -49,22 +50,24 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Formuläret är ofullständigt." }, { status: 400 });
   }
 
-  const lines: string[] = [];
+  const rows: MailRow[] = [];
   let replyTo: string | undefined;
   for (const field of record.fields as IncomingField[]) {
     if (!field || typeof field !== "object") continue;
     const label = typeof field.label === "string" ? field.label.replace(/[\r\n]/g, " ").slice(0, 80) : "";
     const value = typeof field.value === "string" ? field.value.slice(0, MAX_VALUE).trim() : "";
     if (!label) continue;
-    lines.push(`${label}: ${value}`);
+    rows.push({ label, value });
     if (isEmail(value) && (replyTo === undefined || field.name === "email")) {
       replyTo = value;
     }
   }
 
-  if (lines.length === 0) {
+  if (rows.length === 0) {
     return NextResponse.json({ error: "Formuläret är ofullständigt." }, { status: 400 });
   }
+
+  const subject = record.subject.replace(/[\r\n]/g, " ").trim();
 
   const port = Number(process.env.SMTP_PORT || 465);
   const transporter = nodemailer.createTransport({
@@ -80,8 +83,9 @@ export async function POST(request: Request) {
       to: process.env.SMTP_TO || site.formEmail,
       replyTo,
       headers: replyTo ? { "Reply-To": replyTo } : undefined,
-      subject: record.subject.replace(/[\r\n]/g, " ").trim(),
-      text: lines.join("\n"),
+      subject,
+      text: clubEmailText(subject, rows),
+      html: clubEmailHtml(subject, rows),
     });
   } catch {
     return NextResponse.json(
