@@ -10,18 +10,18 @@ import { mapsUrl, phoneHref, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Träningstider",
   description:
-    "Träningstider för FC Växjös ungdomslag P13, P15 och P16 på Arabyvallen i Växjö, med kontakt till tränarna.",
+    "Träningstider för FC Växjös fotbollsskola, P13, P15 och P16 på Centrumskolan i Växjö, med kontakt till tränarna.",
   alternates: { canonical: "/traningstider" },
 };
 
 export default function TrainingPage() {
   return (
     <>
-      <PageIntro kicker="Säsongen 2026 · Arabyvallen" title="Träningstider och våra lag">
+      <PageIntro kicker="Säsongen 2026 · Centrumskolan" title="Träningstider och våra lag">
         Här finns träningstider för FC Växjös ungdomslag och telefon till respektive tränare.
       </PageIntro>
 
-      <Container className="grid gap-6 py-12 md:grid-cols-3">
+      <Container className="grid gap-6 py-12 md:grid-cols-2 xl:grid-cols-4">
         {teams.map((team) => (
           <article key={team.id} className="rounded-xl border border-stone-200 p-6">
             <h2 className="font-display text-4xl uppercase text-crimson">{team.name}</h2>
@@ -37,19 +37,23 @@ export default function TrainingPage() {
               ))}
             </ul>
             <p className="mt-4 text-sm font-semibold">{team.pitch}</p>
-            <h3 className="mt-5 text-sm font-semibold uppercase tracking-wide text-stone-500">
-              Tränare
-            </h3>
-            <ul className="mt-2 space-y-1 text-sm">
-              {team.coaches.map((coach) => (
-                <li key={coach.phone}>
-                  {coach.name}{" "}
-                  <a className="font-semibold text-crimson" href={phoneHref(coach.phone)}>
-                    {coach.phone}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {team.coaches.length > 0 ? (
+              <>
+                <h3 className="mt-5 text-sm font-semibold uppercase tracking-wide text-stone-500">
+                  Tränare
+                </h3>
+                <ul className="mt-2 space-y-1 text-sm">
+                  {team.coaches.map((coach) => (
+                    <li key={coach.phone}>
+                      {coach.name}{" "}
+                      <a className="font-semibold text-crimson" href={phoneHref(coach.phone)}>
+                        {coach.phone}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
           </article>
         ))}
       </Container>
@@ -60,7 +64,7 @@ export default function TrainingPage() {
             <h2 className="font-display text-3xl uppercase text-crimson">Vill du provträna?</h2>
             <p className="mt-3 text-stone-700">
               Alla barn är välkomna att testa tre träningar utan kostnad. Ta med gympaskor och kom
-              till Arabyvallen vid lagets träningstid.
+              till Centrumskolan vid lagets träningstid.
             </p>
             <Link
               href="/bli-medlem"
