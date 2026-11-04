@@ -7,6 +7,7 @@ export const site = {
   url: "https://fcvaxjo.se",
   founded: "1989",
   email: "info@fcvaxjo.se",
+  formEmail: "bakhtiar@fcvaxjo.se",
   phone: "073-344 91 39",
   address: {
     street: "Hjälmar Petris väg 3A",

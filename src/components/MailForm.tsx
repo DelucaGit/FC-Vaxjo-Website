@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 
 export type MailField = {
   name: string;
@@ -10,35 +10,61 @@ export type MailField = {
   options?: string[];
 };
 
+const fieldClass =
+  "mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 font-normal text-stone-900";
+
 /**
- * Opens the visitor's email app. The static site does not store the message.
+ * Sends the message through the club server. The visitor's mail app stays closed.
  */
 export function MailForm({
-  to,
   subject,
   fields,
   submitLabel,
   onDark = false,
 }: {
-  to: string;
   subject: string;
   fields: MailField[];
   submitLabel: string;
   onDark?: boolean;
 }) {
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [error, setError] = useState("");
+
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setStatus("sending");
+    setError("");
     const data = new FormData(event.currentTarget);
-    const lines = fields.map((field) => {
-      const value = String(data.get(field.name) ?? "").trim();
-      return `${field.label}: ${value}`;
-    });
-    const href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
-    window.location.href = href;
+
+    try {
+      const response = await fetch("/api/contact/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          subject,
+          company: String(data.get("company") ?? ""),
+          fields: fields.map((field) => ({
+            name: field.name,
+            label: field.label,
+            value: String(data.get(field.name) ?? "").trim(),
+          })),
+        }),
+      });
+      const body = (await response.json().catch(() => null)) as { error?: string } | null;
+      if (!response.ok) {
+        throw new Error(body?.error || "Mejlet kunde inte skickas.");
+      }
+      setStatus("sent");
+      event.currentTarget.reset();
+    } catch (caught) {
+      setStatus("error");
+      setError(caught instanceof Error ? caught.message : "Mejlet kunde inte skickas.");
+    }
   }
 
   return (
     <form onSubmit={onSubmit} className="space-y-4">
+      <input name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
       {fields.map((field) => (
         <label
           key={field.name}
@@ -47,19 +73,9 @@ export function MailForm({
           {field.label}
           {field.required ? <span className="text-crimson"> *</span> : null}
           {field.type === "textarea" ? (
-            <textarea
-              name={field.name}
-              required={field.required}
-              rows={5}
-              className="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 font-normal text-stone-900"
-            />
+            <textarea name={field.name} required={field.required} rows={5} className={fieldClass} />
           ) : field.type === "select" ? (
-            <select
-              name={field.name}
-              required={field.required}
-              className="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 font-normal text-stone-900"
-              defaultValue=""
-            >
+            <select name={field.name} required={field.required} className={fieldClass} defaultValue="">
               <option value="" disabled className="bg-white text-stone-900">
                 Välj
               </option>
@@ -74,23 +90,28 @@ export function MailForm({
               name={field.name}
               type={field.type ?? "text"}
               required={field.required}
-              className="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 font-normal text-stone-900"
+              className={fieldClass}
             />
           )}
         </label>
       ))}
       <button
         type="submit"
-        className={`rounded-md px-5 py-3 text-sm font-semibold uppercase tracking-wider ${
+        disabled={status === "sending"}
+        className={`rounded-md px-5 py-3 text-sm font-semibold uppercase tracking-wider disabled:opacity-60 ${
           onDark
             ? "bg-white text-crimson hover:bg-stone-100"
             : "bg-crimson text-white hover:bg-crimson-dark"
         }`}
       >
-        {submitLabel}
+        {status === "sending" ? "Skickar..." : submitLabel}
       </button>
       <p className={`text-sm ${onDark ? "text-red-50" : "text-stone-600"}`}>
-        Knappen öppnar ditt e-postprogram med texten ifylld. Webbplatsen sparar inte meddelandet.
+        {status === "sent"
+          ? "Tack. Meddelandet är skickat till klubben."
+          : status === "error"
+            ? error
+            : "Meddelandet skickas direkt till klubben. Du behöver inte öppna ett e-postprogram."}
       </p>
     </form>
   );

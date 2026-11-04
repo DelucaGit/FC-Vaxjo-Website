@@ -40,7 +40,6 @@ export default function JoinPage() {
           </ul>
           <div className="mt-6">
             <MailForm
-              to={site.email}
               subject="Intresseanmälan spelare FC Växjö"
               submitLabel="Skicka intresseanmälan"
               fields={[

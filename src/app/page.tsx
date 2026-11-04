@@ -227,7 +227,6 @@ export default function HomePage() {
             </p>
           </div>
           <MailForm
-            to={site.email}
             subject="Sponsorförfrågan till FC Växjö"
             submitLabel="Skicka förfrågan"
             onDark
