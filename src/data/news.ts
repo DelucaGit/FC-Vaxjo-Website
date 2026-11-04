@@ -2,7 +2,7 @@ import { images } from "@/data/images";
 
 /**
  * News shown on the site until the club can publish from the app.
- * Only MatchCamp has its own article page. The other notes are short on purpose.
+ * The notes are short on purpose.
  */
 
 export type NewsItem = {
@@ -17,30 +17,18 @@ export type NewsItem = {
 };
 
 export const featuredStory: NewsItem = {
-  id: "matchcamp",
-  category: "Cup",
-  date: "Lördag 11 april",
-  title: "Inbjudan till MatchCamp i Tipshallen – helgen fylld med fartfyllda matcher",
+  id: "varsasong",
+  category: "Ungdom",
+  date: "2 dagar sedan",
+  title: "Start för vårsäsongen på Arabyvallen – ny anmälan öppen",
   summary:
-    "FC Växjö deltar i MatchCamp i Tipshallen. Det blir en intensiv dag med matcher i både 9v9 och 7v7. Föreningen är stolt över inbjudan från Öster IF.",
-  href: "/nyheter/matchcamp-tipshallen",
-  image: images.indoorMatch,
-  imageAlt:
-    "Inomhusfotboll på konstgräs under belysning, som illustrerar MatchCamp i Tipshallen",
+    "Vi välkomnar tjejer och killar till en ny säsong på Arabyvallen. Träningarna är öppna på lördagar och vardagskvällar.",
+  href: "/bli-medlem",
+  image: images.training,
+  imageAlt: "Ungdomar tränar fotboll på en gräsplan i kvällsljus",
 };
 
 export const newsNotes: NewsItem[] = [
-  {
-    id: "varsasong",
-    category: "Ungdom",
-    date: "2 dagar sedan",
-    title: "Start för vårsäsongen på Arabyvallen – ny anmälan öppen",
-    summary:
-      "Vi välkomnar tjejer och killar till en ny säsong på Arabyvallen. Träningarna är öppna på lördagar och vardagskvällar.",
-    href: "/bli-medlem",
-    image: images.training,
-    imageAlt: "Ungdomar tränar fotboll på en gräsplan i kvällsljus",
-  },
   {
     id: "naringsliv",
     category: "Förening",

@@ -24,7 +24,7 @@ export function MatchList({ matches }: { matches: ClubMatch[] }) {
             {match.home} <span className="text-stone-400">mot</span> {match.away}
           </p>
           <Link
-            href={match.tag === "MatchCamp" ? "/nyheter/matchcamp-tipshallen" : "/nyheter"}
+            href="/nyheter"
             className="text-sm font-semibold uppercase tracking-wide text-crimson hover:text-crimson-dark"
           >
             {match.tag}
