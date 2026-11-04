@@ -2,22 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { MailForm } from "@/components/MailForm";
-import { MatchList } from "@/components/MatchList";
 import { awards, partners, sponsorLevels } from "@/data/clubContent";
 import { images } from "@/data/images";
-import { matches } from "@/data/matches";
 import { featuredStory, newsNotes } from "@/data/news";
 import { teams } from "@/data/teams";
 import { phoneHref, site } from "@/lib/site";
-
-const cupMatches = matches.filter((match) => match.tag === "MatchCamp");
 
 export default function HomePage() {
   return (
     <>
       <section className="border-b border-stone-200 bg-white">
-        <Container className="grid items-center gap-10 py-14 lg:grid-cols-2">
-          <div>
+        <Container className="py-14">
+          <div className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-dark">
               Stolt förening sedan {site.founded} · {site.pitchName}
             </p>
@@ -58,39 +54,6 @@ export default function HomePage() {
               </div>
             </dl>
           </div>
-
-          <aside className="rounded-xl border border-stone-200 bg-stone-50 p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-dark">
-              MatchCamp i Tipshallen
-            </p>
-            <h2 className="mt-2 font-display text-3xl uppercase tracking-wide text-stone-900">
-              Cupdag i Tipshallen
-            </h2>
-            <p className="mt-2 text-sm text-stone-600">
-              Lördag arrangerad av Öster IF med 9v9 och 7v7. Fri entré.
-            </p>
-            <ul className="mt-5 space-y-3">
-              {cupMatches.map((match) => (
-                <li key={match.id} className="flex items-baseline justify-between gap-3 border-b border-stone-200 pb-3">
-                  <span>
-                    <span className="font-display text-xl text-crimson">{match.time}</span>
-                    <span className="mt-1 block text-sm text-stone-700">
-                      {match.home} mot {match.away}
-                    </span>
-                  </span>
-                  <span className="text-xs font-semibold uppercase tracking-wide text-stone-500">
-                    {match.format}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <Link
-              href="/nyheter/matchcamp-tipshallen"
-              className="mt-4 inline-block text-sm font-semibold uppercase tracking-wide text-crimson"
-            >
-              Läs om cupen
-            </Link>
-          </aside>
         </Container>
       </section>
 
@@ -123,7 +86,7 @@ export default function HomePage() {
                   href={featuredStory.href ?? "/nyheter"}
                   className="mt-4 inline-block text-sm font-semibold uppercase tracking-wide text-crimson"
                 >
-                  Läs spelschema
+                  Läs mer
                 </Link>
               </div>
             </article>
@@ -299,12 +262,6 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
-          <div className="mt-10">
-            <h2 className="font-display text-3xl uppercase tracking-wide text-crimson">Spelschema</h2>
-            <div className="mt-4">
-              <MatchList matches={matches} />
-            </div>
-          </div>
         </Container>
       </section>
     </>

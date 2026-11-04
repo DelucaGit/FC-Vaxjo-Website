@@ -6,7 +6,6 @@ export const dynamic = "force-static";
 const paths = [
   "/",
   "/nyheter",
-  "/nyheter/matchcamp-tipshallen",
   "/traningstider",
   "/om-oss",
   "/kontakt",
