@@ -5,6 +5,10 @@ import { site } from "@/lib/site";
 const MAX_FIELDS = 12;
 const MAX_VALUE = 4000;
 
+function isEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
 type IncomingField = {
   name?: unknown;
   label?: unknown;
@@ -53,7 +57,7 @@ export async function POST(request: Request) {
     const value = typeof field.value === "string" ? field.value.slice(0, MAX_VALUE).trim() : "";
     if (!label) continue;
     lines.push(`${label}: ${value}`);
-    if (field.name === "email" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+    if (isEmail(value) && (replyTo === undefined || field.name === "email")) {
       replyTo = value;
     }
   }
@@ -75,6 +79,7 @@ export async function POST(request: Request) {
       from: process.env.SMTP_FROM || user,
       to: process.env.SMTP_TO || site.formEmail,
       replyTo,
+      headers: replyTo ? { "Reply-To": replyTo } : undefined,
       subject: record.subject.replace(/[\r\n]/g, " ").trim(),
       text: lines.join("\n"),
     });
