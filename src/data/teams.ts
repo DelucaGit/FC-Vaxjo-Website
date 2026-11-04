@@ -30,13 +30,21 @@ export type Team = {
 
 export const teams: Team[] = [
   {
+    id: "fotbollsskola",
+    name: "Fotbollsskola",
+    group: "Öppen träning",
+    pitch: "Centrumskolan",
+    sessions: [{ day: "Lördagar", time: "11:00–12:00" }],
+    coaches: [],
+  },
+  {
     id: "p13",
     name: "P13",
     group: "Pojkar 13",
-    pitch: "Huvudplanen",
+    pitch: "Centrumskolan",
     sessions: [
-      { day: "Tisdagar", time: "17:00–18:00" },
-      { day: "Torsdagar", time: "18:30–19:30" },
+      { day: "Måndagar", time: "18:00–19:15" },
+      { day: "Onsdagar", time: "18:15–19:39" },
     ],
     coaches: [
       { name: "Mirnes", phone: "079-331 91 04" },
@@ -47,10 +55,10 @@ export const teams: Team[] = [
     id: "p15",
     name: "P15",
     group: "Pojkar 15",
-    pitch: "Huvudplanen",
+    pitch: "Centrumskolan",
     sessions: [
-      { day: "Tisdagar", time: "17:00–18:00" },
-      { day: "Torsdagar", time: "18:30–19:30" },
+      { day: "Måndagar", time: "17:00–18:00" },
+      { day: "Torsdagar", time: "17:00–18:00" },
     ],
     coaches: [
       { name: "Idris", phone: "079-339 57 11" },
@@ -61,11 +69,8 @@ export const teams: Team[] = [
     id: "p16",
     name: "P16",
     group: "Pojkar 16",
-    pitch: "Lilla planen bredvid Araby",
-    sessions: [
-      { day: "Måndagar", time: "17:00–18:00" },
-      { day: "Onsdagar", time: "17:00–18:00" },
-    ],
+    pitch: "Centrumskolan",
+    sessions: [{ day: "Lördagar", time: "12:00–13:00" }],
     coaches: [
       { name: "Rami", phone: "076-219 76 60" },
       { name: "Abrar", phone: "076-757 94 48" },

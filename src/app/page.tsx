@@ -129,12 +129,12 @@ export default function HomePage() {
       <section className="bg-white py-16" id="traningstider">
         <Container>
           <h2 className="font-display text-4xl uppercase tracking-wide text-crimson">
-            Träningstider på Arabyvallen
+            Träningstider på Centrumskolan
           </h2>
           <p className="mt-3 max-w-2xl text-stone-700">
-            Träning för ungdomslagen med ledare på Arabyvallen.
+            Träning för fotbollsskolan och ungdomslagen med ledare på Centrumskolan.
           </p>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {teams.map((team) => (
               <article key={team.id} className="rounded-xl border border-stone-200 p-6">
                 <h3 className="font-display text-3xl uppercase text-crimson">{team.name}</h3>
@@ -147,16 +147,18 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <p className="mt-4 text-sm font-semibold text-stone-700">{team.pitch}</p>
-                <ul className="mt-3 space-y-1 text-sm">
-                  {team.coaches.map((coach) => (
-                    <li key={coach.phone}>
-                      {coach.name}{" "}
-                      <a className="text-crimson" href={phoneHref(coach.phone)}>
-                        {coach.phone}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                {team.coaches.length > 0 ? (
+                  <ul className="mt-3 space-y-1 text-sm">
+                    {team.coaches.map((coach) => (
+                      <li key={coach.phone}>
+                        {coach.name}{" "}
+                        <a className="text-crimson" href={phoneHref(coach.phone)}>
+                          {coach.phone}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
               </article>
             ))}
           </div>
