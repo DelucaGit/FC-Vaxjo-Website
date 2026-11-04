@@ -32,9 +32,10 @@ export function MailForm({
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const form = event.currentTarget;
     setStatus("sending");
     setError("");
-    const data = new FormData(event.currentTarget);
+    const data = new FormData(form);
 
     try {
       const response = await fetch("/api/contact/", {
@@ -55,7 +56,7 @@ export function MailForm({
         throw new Error(body?.error || "Mejlet kunde inte skickas.");
       }
       setStatus("sent");
-      event.currentTarget.reset();
+      form.reset();
     } catch (caught) {
       setStatus("error");
       setError(caught instanceof Error ? caught.message : "Mejlet kunde inte skickas.");
