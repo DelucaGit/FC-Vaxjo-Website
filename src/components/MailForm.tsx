@@ -51,20 +51,20 @@ export function MailForm({
               name={field.name}
               required={field.required}
               rows={5}
-              className="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 font-normal"
+              className="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 font-normal text-stone-900"
             />
           ) : field.type === "select" ? (
             <select
               name={field.name}
               required={field.required}
-              className="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 font-normal"
+              className="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 font-normal text-stone-900"
               defaultValue=""
             >
-              <option value="" disabled>
+              <option value="" disabled className="bg-white text-stone-900">
                 Välj
               </option>
               {field.options?.map((option) => (
-                <option key={option} value={option}>
+                <option key={option} value={option} className="bg-white text-stone-900">
                   {option}
                 </option>
               ))}
@@ -74,7 +74,7 @@ export function MailForm({
               name={field.name}
               type={field.type ?? "text"}
               required={field.required}
-              className="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 font-normal"
+              className="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 font-normal text-stone-900"
             />
           )}
         </label>
