@@ -63,13 +63,12 @@ export default function ContactPage() {
           <div>
             <h2 className="font-display text-3xl uppercase text-crimson">Skicka ett meddelande</h2>
             <p className="mt-2 text-stone-700">
-              Fyll i formuläret så öppnas ett mejl till rätt ämne. Rätt person i klubben svarar.
+              Fyll i formuläret och skicka. Meddelandet går direkt till klubben.
             </p>
             <div className="mt-6">
               <MailForm
-                to={site.email}
                 subject="Meddelande via fcvaxjo.se"
-                submitLabel="Öppna mejl"
+                submitLabel="Skicka meddelande"
                 fields={[
                   { name: "name", label: "Fullständigt namn", required: true },
                   { name: "email", label: "E-postadress", type: "email", required: true },

@@ -1,8 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Plain HTML files for Hostinger. Search engines read the text in those files.
-  output: "export",
+  // Hostinger runs this as a Node server so the forms can send mail.
   trailingSlash: true,
   images: {
     unoptimized: true,
