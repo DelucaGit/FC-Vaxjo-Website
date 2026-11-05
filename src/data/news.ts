@@ -1,5 +1,3 @@
-import { images } from "@/data/images";
-
 /**
  * News shown on the site until the club can publish from the app.
  * The notes are short on purpose.
@@ -24,8 +22,6 @@ export const featuredStory: NewsItem = {
   summary:
     "Vi välkomnar tjejer och killar till en ny säsong på Arabyvallen. Träningarna är öppna på lördagar och vardagskvällar.",
   href: "/bli-medlem",
-  image: images.training,
-  imageAlt: "Ungdomar tränar fotboll på en gräsplan i kvällsljus",
 };
 
 export const newsNotes: NewsItem[] = [
@@ -37,8 +33,6 @@ export const newsNotes: NewsItem[] = [
     summary:
       "Tillsammans med Sparbanken Eken, RF-SISU och Vidingehem skapar vi bättre träning och håller avgifterna låga för unga i Växjö.",
     href: "/bli-medlem#sponsra",
-    image: images.meeting,
-    imageAlt: "Ett möte i en klubblokal med taktiktavla",
   },
 ];
 
