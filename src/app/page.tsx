@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Container } from "@/components/Container";
 import { MailForm } from "@/components/MailForm";
 import { awards, partners } from "@/data/clubContent";
-import { images } from "@/data/images";
 import { featuredStory, newsNotes } from "@/data/news";
 import { teams } from "@/data/teams";
 import { phoneHref, site } from "@/lib/site";
@@ -67,13 +66,15 @@ export default function HomePage() {
           </div>
           <div className="grid gap-6 lg:grid-cols-5">
             <article className="overflow-hidden rounded-xl border border-stone-200 bg-white lg:col-span-3">
-              <Image
-                src={featuredStory.image ?? images.indoorMatch}
-                alt={featuredStory.imageAlt ?? ""}
-                width={1200}
-                height={700}
-                className="h-64 w-full object-cover"
-              />
+              {featuredStory.image ? (
+                <Image
+                  src={featuredStory.image}
+                  alt={featuredStory.imageAlt ?? ""}
+                  width={1200}
+                  height={700}
+                  className="h-64 w-full object-cover"
+                />
+              ) : null}
               <div className="p-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gold-dark">
                   {featuredStory.category} · {featuredStory.date}
