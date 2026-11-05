@@ -42,6 +42,7 @@ export default function JoinPage() {
             <MailForm
               subject="Intresseanmälan spelare FC Växjö"
               submitLabel="Skicka intresseanmälan"
+              showHint={false}
               fields={[
                 { name: "player", label: "Spelarens namn", required: true },
                 { name: "year", label: "Födelseår", required: true },
