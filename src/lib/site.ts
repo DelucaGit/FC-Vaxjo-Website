@@ -18,12 +18,13 @@ export const site = {
 };
 
 const mapsQuery = `${site.pitchName}, ${site.address.street}, ${site.address.postalCode} ${site.address.city}`;
+const gymQuery = "Centrumskolan, Höstvägen 1-3, 352 47 Växjö";
 
 export const mapsUrl =
   "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(mapsQuery);
 
 export const mapsEmbedUrl =
-  "https://maps.google.com/maps?q=" + encodeURIComponent(mapsQuery) + "&hl=sv&z=16&output=embed";
+  "https://maps.google.com/maps?q=" + encodeURIComponent(gymQuery) + "&hl=sv&z=16&output=embed";
 
 export const navLinks = [
   { href: "/", label: "Hem" },

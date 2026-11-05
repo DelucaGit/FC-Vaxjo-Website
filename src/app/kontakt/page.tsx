@@ -90,9 +90,9 @@ export default function ContactPage() {
             </div>
           </div>
           <div>
-            <h2 className="font-display text-3xl uppercase text-crimson">Hitta till Arabyvallen</h2>
+            <h2 className="font-display text-3xl uppercase text-crimson">Hitta till Centrumskolan</h2>
             <iframe
-              title="Karta till Arabyvallen"
+              title="Karta till Centrumskolans gympasal"
               src={mapsEmbedUrl}
               className="mt-4 h-80 w-full rounded-xl border border-stone-200"
               loading="lazy"
@@ -100,15 +100,14 @@ export default function ContactPage() {
             />
             <ul className="mt-4 space-y-3 text-sm text-stone-700">
               <li>
-                <strong>Buss.</strong> Linje 1 och linje 2 från Växjö resecentrum. Stig av vid Araby
-                Centrum, sedan cirka tre minuters promenad.
+                <strong>Adress.</strong> Höstvägen 1–3, 352 47 Växjö. Träningarna är i gympasalen.
               </li>
               <li>
-                <strong>Parkering.</strong> Fri parkering med P-skiva vid idrottsplatsen längs{" "}
-                {site.address.street}.
+                <strong>Parkering.</strong> Parkering finns vid skolan.
               </li>
               <li>
-                <strong>Cykel.</strong> Cykelbana från Stortorget, cirka åtta minuter.
+                <strong>Läge.</strong> Skolan ligger vid Dalbo centrum, inom promenadavstånd från
+                Växjö centrum.
               </li>
             </ul>
           </div>
