@@ -7,7 +7,7 @@ const quickLinks = [
   { href: "/traningstider", label: "Träningstider" },
   { href: "/om-oss", label: "Om klubben och historik" },
   { href: "/bli-medlem", label: "Bli medlem" },
-  { href: "/bli-medlem#sponsra", label: "Sponsorpaket" },
+  { href: "/bli-medlem#sponsra", label: "Sponsra" },
   { href: "/kontakt", label: "Kontakt" },
 ];
 
@@ -43,7 +43,7 @@ export function SiteFooter() {
 
         <div>
           <h2 className="text-sm font-semibold uppercase tracking-[0.14em] text-white">
-            Klubbkansli
+            Postadress
           </h2>
           <address className="mt-4 space-y-2 text-sm not-italic text-stone-300">
             <p>

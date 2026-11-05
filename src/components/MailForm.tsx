@@ -107,13 +107,11 @@ export function MailForm({
       >
         {status === "sending" ? "Skickar..." : submitLabel}
       </button>
-      <p className={`text-sm ${onDark ? "text-red-50" : "text-stone-600"}`}>
-        {status === "sent"
-          ? "Tack. Meddelandet är skickat till klubben."
-          : status === "error"
-            ? error
-            : "Meddelandet skickas direkt till klubben. Du behöver inte öppna ett e-postprogram."}
-      </p>
+      {status === "sent" || status === "error" ? (
+        <p className={`text-sm ${onDark ? "text-red-50" : "text-stone-600"}`}>
+          {status === "sent" ? "Tack. Meddelandet är skickat till klubben." : error}
+        </p>
+      ) : null}
     </form>
   );
 }

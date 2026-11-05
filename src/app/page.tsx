@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { MailForm } from "@/components/MailForm";
-import { awards, partners, sponsorLevels } from "@/data/clubContent";
+import { awards, partners } from "@/data/clubContent";
 import { images } from "@/data/images";
 import { featuredStory, newsNotes } from "@/data/news";
 import { teams } from "@/data/teams";
@@ -233,16 +233,7 @@ export default function HomePage() {
             fields={[
               { name: "name", label: "Företag eller namn", required: true },
               { name: "contact", label: "Telefon eller e-post", required: true },
-              {
-                name: "level",
-                label: "Önskad nivå",
-                type: "select",
-                required: true,
-                options: [
-                  ...sponsorLevels.map((level) => `${level.name} – ${level.price}`),
-                  "Föreningsvän / valfritt belopp",
-                ],
-              },
+              { name: "message", label: "Meddelande", type: "textarea", required: true },
             ]}
           />
         </Container>

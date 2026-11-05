@@ -16,13 +16,13 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <PageIntro kicker="Klubbkansli · Arabyvallen" title="Kontakta FC Växjö">
+      <PageIntro kicker="Postadress" title="Kontakta FC Växjö">
         Hör av dig. Vi finns här för spelare, föräldrar, supportrar och samarbetspartners.
       </PageIntro>
 
       <Container className="grid gap-4 py-12 md:grid-cols-3">
         <article className="rounded-xl border border-stone-200 p-5">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-gold-dark">Besöksadress</h2>
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-gold-dark">Postadress</h2>
           <p className="mt-2">
             {site.pitchName}
             <br />
