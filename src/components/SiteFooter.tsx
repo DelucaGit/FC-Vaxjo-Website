@@ -43,7 +43,7 @@ export function SiteFooter() {
 
         <div>
           <h2 className="text-sm font-semibold uppercase tracking-[0.14em] text-white">
-            Klubbkansli
+            Postadress
           </h2>
           <address className="mt-4 space-y-2 text-sm not-italic text-stone-300">
             <p>
