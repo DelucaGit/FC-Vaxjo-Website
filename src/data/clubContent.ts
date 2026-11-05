@@ -78,27 +78,6 @@ export const partners = [
   "SvFF",
 ];
 
-export const sponsorLevels = [
-  {
-    name: "Brons",
-    title: "Supporterpartner",
-    price: "2 500 kr / år",
-    text: "Företagsskylt vid Arabyvallen och omnämnande på fcvaxjo.se.",
-  },
-  {
-    name: "Silver",
-    title: "Klubbpartner",
-    price: "6 000 kr / år",
-    text: "Stor skylt på arenan, logotyp på hemsidan och matchbollsvärd vid hemmamatch.",
-  },
-  {
-    name: "Guld",
-    title: "Huvudpartner",
-    price: "15 000 kr / år",
-    text: "Framträdande logotyp på matchtröjor, skyltplats och närvaro vid evenemang.",
-  },
-];
-
 export const leaders = [
   {
     name: "Bakthiar Mohammed",

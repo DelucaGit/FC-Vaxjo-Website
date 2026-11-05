@@ -7,7 +7,7 @@ const quickLinks = [
   { href: "/traningstider", label: "Träningstider" },
   { href: "/om-oss", label: "Om klubben och historik" },
   { href: "/bli-medlem", label: "Bli medlem" },
-  { href: "/bli-medlem#sponsra", label: "Sponsorpaket" },
+  { href: "/bli-medlem#sponsra", label: "Sponsra" },
   { href: "/kontakt", label: "Kontakt" },
 ];
 
