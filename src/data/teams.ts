@@ -33,7 +33,7 @@ export const teams: Team[] = [
     id: "fotbollsskola",
     name: "Fotbollsskola",
     group: "Öppen träning",
-    pitch: "Centrumskolan",
+    pitch: "Centrumskolans gympasal",
     sessions: [{ day: "Lördagar", time: "11:00–12:00" }],
     coaches: [],
   },
@@ -41,7 +41,7 @@ export const teams: Team[] = [
     id: "p13",
     name: "P13",
     group: "Pojkar 13",
-    pitch: "Centrumskolan",
+    pitch: "Centrumskolans gympasal",
     sessions: [
       { day: "Måndagar", time: "18:00–19:15" },
       { day: "Onsdagar", time: "18:15–19:39" },
@@ -55,7 +55,7 @@ export const teams: Team[] = [
     id: "p15",
     name: "P15",
     group: "Pojkar 15",
-    pitch: "Centrumskolan",
+    pitch: "Centrumskolans gympasal",
     sessions: [
       { day: "Måndagar", time: "17:00–18:00" },
       { day: "Torsdagar", time: "17:00–18:00" },
@@ -69,7 +69,7 @@ export const teams: Team[] = [
     id: "p16",
     name: "P16",
     group: "Pojkar 16",
-    pitch: "Centrumskolan",
+    pitch: "Centrumskolans gympasal",
     sessions: [{ day: "Lördagar", time: "12:00–13:00" }],
     coaches: [
       { name: "Rami", phone: "076-219 76 60" },

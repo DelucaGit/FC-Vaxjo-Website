@@ -10,14 +10,14 @@ import { mapsUrl, phoneHref, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Träningstider",
   description:
-    "Träningstider för FC Växjös fotbollsskola, P13, P15 och P16 på Centrumskolan i Växjö, med kontakt till tränarna.",
+    "Träningstider för FC Växjös fotbollsskola, P13, P15 och P16 i Centrumskolans gympasal i Växjö, med kontakt till tränarna.",
   alternates: { canonical: "/traningstider" },
 };
 
 export default function TrainingPage() {
   return (
     <>
-      <PageIntro kicker="Säsongen 2026 · Centrumskolan" title="Träningstider och våra lag">
+      <PageIntro kicker="Säsongen 2026 · Centrumskolans gympasal" title="Träningstider och våra lag">
         Här finns träningstider för FC Växjös ungdomslag och telefon till respektive tränare.
       </PageIntro>
 
@@ -64,7 +64,7 @@ export default function TrainingPage() {
             <h2 className="font-display text-3xl uppercase text-crimson">Vill du provträna?</h2>
             <p className="mt-3 text-stone-700">
               Alla barn är välkomna att testa tre träningar utan kostnad. Ta med gympaskor och kom
-              till Centrumskolan vid lagets träningstid.
+              till Centrumskolans gympasal vid lagets träningstid.
             </p>
             <Link
               href="/bli-medlem"

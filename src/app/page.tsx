@@ -129,10 +129,10 @@ export default function HomePage() {
       <section className="bg-white py-16" id="traningstider">
         <Container>
           <h2 className="font-display text-4xl uppercase tracking-wide text-crimson">
-            Träningstider på Centrumskolan
+            Träningstider i Centrumskolans gympasal
           </h2>
           <p className="mt-3 max-w-2xl text-stone-700">
-            Träning för fotbollsskolan och ungdomslagen med ledare på Centrumskolan.
+            Träning för fotbollsskolan och ungdomslagen med ledare i Centrumskolans gympasal.
           </p>
           <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {teams.map((team) => (
