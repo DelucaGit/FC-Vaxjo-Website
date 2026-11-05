@@ -1,9 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { MailForm } from "@/components/MailForm";
 import { awards, partners } from "@/data/clubContent";
-import { featuredStory, newsNotes } from "@/data/news";
 import { teams } from "@/data/teams";
 import { phoneHref, site } from "@/lib/site";
 
@@ -52,77 +50,6 @@ export default function HomePage() {
                 <dd className="text-sm text-stone-600">Gemenskap</dd>
               </div>
             </dl>
-          </div>
-        </Container>
-      </section>
-
-      <section className="bg-stone-50 py-16">
-        <Container>
-          <div className="mb-8 flex items-end justify-between gap-4">
-            <h2 className="font-display text-4xl uppercase tracking-wide text-crimson">Senaste nytt</h2>
-            <Link href="/nyheter" className="text-sm font-semibold uppercase tracking-wide text-crimson">
-              Alla nyheter
-            </Link>
-          </div>
-          <div className="grid gap-6 lg:grid-cols-5">
-            <article className="overflow-hidden rounded-xl border border-stone-200 bg-white lg:col-span-3">
-              {featuredStory.image ? (
-                <Image
-                  src={featuredStory.image}
-                  alt={featuredStory.imageAlt ?? ""}
-                  width={1200}
-                  height={700}
-                  className="h-64 w-full object-cover"
-                />
-              ) : null}
-              <div className="p-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gold-dark">
-                  {featuredStory.category} · {featuredStory.date}
-                </p>
-                <h3 className="mt-2 font-display text-3xl uppercase leading-tight tracking-wide text-stone-900">
-                  {featuredStory.title}
-                </h3>
-                <p className="mt-3 text-stone-700">{featuredStory.summary}</p>
-                <Link
-                  href={featuredStory.href ?? "/nyheter"}
-                  className="mt-4 inline-block text-sm font-semibold uppercase tracking-wide text-crimson"
-                >
-                  Läs mer
-                </Link>
-              </div>
-            </article>
-            <div className="grid gap-6 lg:col-span-2">
-              {newsNotes.map((item) => (
-                <article key={item.id} className="overflow-hidden rounded-xl border border-stone-200 bg-white">
-                  {item.image ? (
-                    <Image
-                      src={item.image}
-                      alt={item.imageAlt ?? ""}
-                      width={800}
-                      height={450}
-                      className="h-36 w-full object-cover"
-                    />
-                  ) : null}
-                  <div className="p-5">
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gold-dark">
-                      {item.category} · {item.date}
-                    </p>
-                    <h3 className="mt-2 font-display text-2xl uppercase leading-tight text-stone-900">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-stone-700">{item.summary}</p>
-                    {item.href ? (
-                      <Link
-                        href={item.href}
-                        className="mt-3 inline-block text-sm font-semibold uppercase tracking-wide text-crimson"
-                      >
-                        Läs mer
-                      </Link>
-                    ) : null}
-                  </div>
-                </article>
-              ))}
-            </div>
           </div>
         </Container>
       </section>
