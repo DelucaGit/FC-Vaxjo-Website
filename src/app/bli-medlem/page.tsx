@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Bli medlem och sponsra",
   description:
-    "Bli medlem i FC Växjö eller hör av dig om ett samarbete. Låg avgift för spelare, 300 kr per termin.",
+    "Anmäl intresse för att spela i FC Växjö, eller hör av dig om ett samarbete.",
   alternates: { canonical: "/bli-medlem" },
 };
 
@@ -16,8 +16,7 @@ export default function JoinPage() {
   return (
     <>
       <PageIntro kicker="För spelare, familjer och partners" title="Bli medlem och samarbeta">
-        FC Växjö bygger gemenskap och framtidstro med fotbollen på Arabyvallen. Vi håller avgifterna
-        låga så att alla kan vara med.
+        FC Växjö bygger gemenskap och framtidstro med fotbollen. Hör av dig om du vill börja spela.
       </PageIntro>
 
       <Container className="grid gap-12 py-12 lg:grid-cols-2">
@@ -27,17 +26,9 @@ export default function JoinPage() {
           </p>
           <h2 className="mt-2 font-display text-4xl uppercase text-crimson">Spela fotboll</h2>
           <p className="mt-3 text-stone-700">
-            Hos oss är tröskeln låg och gemenskapen stor. Verksamheten leds av engagerade tränare på
-            Arabyvallen.
+            Hos oss är gemenskapen stor. Verksamheten leds av engagerade tränare. Hör av dig så
+            berättar vi mer om vad det kostar och hur träningen ser ut.
           </p>
-          <p className="mt-4 font-display text-3xl text-stone-900">
-            300 kr <span className="text-lg text-stone-600">/ termin</span>
-          </p>
-          <ul className="mt-3 list-disc space-y-1 pl-5 text-stone-700">
-            <li>Träning 2–3 gånger i veckan</li>
-            <li>Officiell matchtröja ingår</li>
-            <li>Försäkring via SvFF och Folksam</li>
-          </ul>
           <div className="mt-6">
             <MailForm
               subject="Intresseanmälan spelare FC Växjö"
