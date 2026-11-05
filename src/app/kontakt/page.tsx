@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { MailForm } from "@/components/MailForm";
 import { PageIntro } from "@/components/PageIntro";
 import { leaders } from "@/data/clubContent";
-import { images } from "@/data/images";
-import { mapsUrl, phoneHref, site } from "@/lib/site";
+import { mapsEmbedUrl, mapsUrl, phoneHref, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Kontakt",
@@ -93,12 +91,12 @@ export default function ContactPage() {
           </div>
           <div>
             <h2 className="font-display text-3xl uppercase text-crimson">Hitta till Arabyvallen</h2>
-            <Image
-              src={images.pitch}
-              alt="Fotbollsplanen på Arabyvallen med skog runt om"
-              width={1200}
-              height={700}
-              className="mt-4 w-full rounded-xl object-cover"
+            <iframe
+              title="Karta till Arabyvallen"
+              src={mapsEmbedUrl}
+              className="mt-4 h-80 w-full rounded-xl border border-stone-200"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
             />
             <ul className="mt-4 space-y-3 text-sm text-stone-700">
               <li>

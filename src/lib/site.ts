@@ -17,11 +17,13 @@ export const site = {
   pitchName: "Arabyvallen",
 };
 
+const mapsQuery = `${site.pitchName}, ${site.address.street}, ${site.address.postalCode} ${site.address.city}`;
+
 export const mapsUrl =
-  "https://www.google.com/maps/search/?api=1&query=" +
-  encodeURIComponent(
-    `${site.address.street}, ${site.address.postalCode} ${site.address.city}`,
-  );
+  "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(mapsQuery);
+
+export const mapsEmbedUrl =
+  "https://maps.google.com/maps?q=" + encodeURIComponent(mapsQuery) + "&hl=sv&z=16&output=embed";
 
 export const navLinks = [
   { href: "/", label: "Hem" },
