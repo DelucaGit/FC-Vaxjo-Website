@@ -112,6 +112,5 @@ export const leaders = [
     role: "Tränare och ungdomsansvarig",
     text: "Ansvarar för den sportsliga organisationen, träningstider och samordningen mellan ungdomslagen.",
     phone: "070-957 11 54",
-    email: "ungdom@fcvaxjo.se",
   },
 ];
