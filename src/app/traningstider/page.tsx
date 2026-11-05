@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { PageIntro } from "@/components/PageIntro";
-import { images } from "@/data/images";
 import { teams } from "@/data/teams";
-import { mapsUrl, phoneHref, site } from "@/lib/site";
+import { gymMapsUrl, mapsEmbedUrl, phoneHref } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Träningstider",
@@ -74,18 +72,18 @@ export default function TrainingPage() {
             </Link>
           </div>
           <div>
-            <Image
-              src={images.pitch}
-              alt="Grön fotbollsplan på Arabyvallen, omgiven av skog"
-              width={1200}
-              height={700}
-              className="w-full rounded-xl object-cover"
+            <iframe
+              title="Karta till Centrumskolans gympasal"
+              src={mapsEmbedUrl}
+              className="h-80 w-full rounded-xl border border-stone-200"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
             />
             <p className="mt-3 text-sm text-stone-700">
-              {site.pitchName}, {site.address.street}, {site.address.postalCode} {site.address.city}
+              Centrumskolans gympasal, Höstvägen 1–3, 352 47 Växjö
             </p>
             <a
-              href={mapsUrl}
+              href={gymMapsUrl}
               className="mt-2 inline-block text-sm font-semibold text-crimson"
               target="_blank"
               rel="noopener noreferrer"

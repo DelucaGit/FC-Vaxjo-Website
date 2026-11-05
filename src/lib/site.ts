@@ -23,6 +23,9 @@ const gymQuery = "Centrumskolan, Höstvägen 1-3, 352 47 Växjö";
 export const mapsUrl =
   "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(mapsQuery);
 
+export const gymMapsUrl =
+  "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(gymQuery);
+
 export const mapsEmbedUrl =
   "https://maps.google.com/maps?q=" + encodeURIComponent(gymQuery) + "&hl=sv&z=16&output=embed";
 
