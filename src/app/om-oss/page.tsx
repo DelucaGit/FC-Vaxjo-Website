@@ -85,7 +85,7 @@ export default function AboutPage() {
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {leaders.map((leader) => (
-            <article key={leader.email} className="rounded-xl border border-stone-200 p-5">
+            <article key={leader.name} className="rounded-xl border border-stone-200 p-5">
               <h3 className="font-display text-2xl uppercase text-stone-900">{leader.name}</h3>
               <p className="text-sm font-semibold uppercase tracking-wide text-gold-dark">
                 {leader.role}
@@ -95,10 +95,14 @@ export default function AboutPage() {
                 <a className="text-crimson" href={phoneHref(leader.phone)}>
                   {leader.phone}
                 </a>
-                <br />
-                <a className="text-crimson" href={`mailto:${leader.email}`}>
-                  {leader.email}
-                </a>
+                {leader.email ? (
+                  <>
+                    <br />
+                    <a className="text-crimson" href={`mailto:${leader.email}`}>
+                      {leader.email}
+                    </a>
+                  </>
+                ) : null}
               </p>
             </article>
           ))}
