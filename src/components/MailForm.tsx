@@ -21,11 +21,13 @@ export function MailForm({
   fields,
   submitLabel,
   onDark = false,
+  showHint = true,
 }: {
   subject: string;
   fields: MailField[];
   submitLabel: string;
   onDark?: boolean;
+  showHint?: boolean;
 }) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState("");
@@ -107,13 +109,15 @@ export function MailForm({
       >
         {status === "sending" ? "Skickar..." : submitLabel}
       </button>
-      <p className={`text-sm ${onDark ? "text-red-50" : "text-stone-600"}`}>
-        {status === "sent"
-          ? "Tack. Meddelandet är skickat till klubben."
-          : status === "error"
-            ? error
-            : "Meddelandet skickas direkt till klubben. Du behöver inte öppna ett e-postprogram."}
-      </p>
+      {status === "sent" || status === "error" || showHint ? (
+        <p className={`text-sm ${onDark ? "text-red-50" : "text-stone-600"}`}>
+          {status === "sent"
+            ? "Tack. Meddelandet är skickat till klubben."
+            : status === "error"
+              ? error
+              : "Meddelandet skickas direkt till klubben. Du behöver inte öppna ett e-postprogram."}
+        </p>
+      ) : null}
     </form>
   );
 }

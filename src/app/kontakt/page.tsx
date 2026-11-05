@@ -69,6 +69,7 @@ export default function ContactPage() {
               <MailForm
                 subject="Meddelande via fcvaxjo.se"
                 submitLabel="Skicka meddelande"
+                showHint={false}
                 fields={[
                   { name: "name", label: "Fullständigt namn", required: true },
                   { name: "email", label: "E-postadress", type: "email", required: true },
