@@ -44,7 +44,7 @@ export const teams: Team[] = [
     pitch: "Centrumskolan",
     sessions: [
       { day: "Måndagar", time: "18:00–19:15" },
-      { day: "Onsdagar", time: "18:15–19:39" },
+      { day: "Onsdagar", time: "18:15–19:30" },
     ],
     coaches: [
       { name: "Sakib", phone: "073-524 17 73" }
