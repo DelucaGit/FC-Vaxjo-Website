@@ -47,8 +47,7 @@ export const teams: Team[] = [
       { day: "Onsdagar", time: "18:15–19:39" },
     ],
     coaches: [
-      { name: "Mirnes", phone: "079-331 91 04" },
-      { name: "Joseph", phone: "073-710 32 56" },
+      { name: "Sakib", phone: "073-524 17 73" }
     ],
   },
   {
@@ -61,8 +60,7 @@ export const teams: Team[] = [
       { day: "Torsdagar", time: "17:00–18:00" },
     ],
     coaches: [
-      { name: "Idris", phone: "079-339 57 11" },
-      { name: "Leo", phone: "076-014 15 86" },
+      { name: "Irfan", phone: "072-151 86 64" }
     ],
   },
   {
