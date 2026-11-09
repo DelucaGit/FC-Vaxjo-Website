@@ -1,66 +1,148 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { MailForm } from "@/components/MailForm";
 import { MatchList } from "@/components/MatchList";
 import { awards, partners } from "@/data/clubContent";
-import { getUpcomingMatches } from "@/data/matches";
+import { images } from "@/data/images";
+import { formatMatchDate, getUpcomingMatches } from "@/data/matches";
 import { teams } from "@/data/teams";
 import { phoneHref, site } from "@/lib/site";
 
 export default function HomePage() {
   const upcomingMatches = getUpcomingMatches();
   const previewMatches = upcomingMatches.slice(0, 4);
+  const nextMatch = upcomingMatches[0];
+  const nextMatchDate = nextMatch ? formatMatchDate(nextMatch.date) : null;
 
   return (
     <>
       <section className="border-b border-stone-200 bg-white">
-        <Container className="py-14">
-          <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-dark">
-              Stolt förening sedan {site.founded} · {site.pitchName}
-            </p>
-            <h1 className="mt-3 font-display text-5xl uppercase leading-none tracking-wide text-crimson sm:text-7xl">
-              FC Växjö
-              <span className="mt-2 block text-stone-900">sedan {site.founded}</span>
-            </h1>
-            <p className="mt-5 max-w-xl text-lg leading-8 text-stone-700">
-              Gemenskap, glädje och framtidstro på Arabyvallen. Vi fostrar morgondagens
-              fotbollsspelare och bygger en inkluderande idrottsfamilj i hjärtat av Småland.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="/matcher"
-                className="rounded-md bg-crimson px-5 py-3 text-sm font-semibold uppercase tracking-wider text-white hover:bg-crimson-dark"
-              >
-                Kommande matcher
-              </Link>
-              <Link
-                href="/traningstider"
-                className="rounded-md border border-crimson px-5 py-3 text-sm font-semibold uppercase tracking-wider text-crimson hover:bg-red-50"
-              >
-                Se träningstider
-              </Link>
-              <Link
-                href="/bli-medlem#sponsra"
-                className="rounded-md border border-stone-300 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-stone-700 hover:bg-stone-50"
-              >
-                Bli sponsor
-              </Link>
+        <Container className="py-14 lg:py-16">
+          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
+            <div className="lg:col-span-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-dark">
+                Stolt förening sedan {site.founded} · {site.pitchName}
+              </p>
+              <h1 className="mt-5 font-display text-5xl uppercase leading-none tracking-wide text-crimson sm:text-7xl">
+                FC Växjö
+                <span className="mt-2 block text-stone-900">sedan {site.founded}</span>
+              </h1>
+              <p className="mt-5 max-w-xl text-lg leading-8 text-stone-700">
+                Gemenskap, glädje och framtidstro på Arabyvallen. Vi fostrar morgondagens
+                fotbollsspelare och bygger en inkluderande idrottsfamilj i hjärtat av Småland.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  href="/matcher"
+                  className="rounded-md bg-crimson px-5 py-3 text-sm font-semibold uppercase tracking-wider text-white hover:bg-crimson-dark"
+                >
+                  Kommande matcher
+                </Link>
+                <Link
+                  href="/traningstider"
+                  className="rounded-md border border-crimson px-5 py-3 text-sm font-semibold uppercase tracking-wider text-crimson hover:bg-red-50"
+                >
+                  Se träningstider
+                </Link>
+                <Link
+                  href="/bli-medlem#sponsra"
+                  className="rounded-md border border-stone-300 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-stone-700 hover:bg-stone-50"
+                >
+                  Bli sponsor
+                </Link>
+              </div>
+              <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-stone-200 pt-6">
+                <div>
+                  <dt className="font-display text-4xl text-crimson">35+</dt>
+                  <dd className="text-sm text-stone-600">År av fotboll</dd>
+                </div>
+                <div>
+                  <dt className="font-display text-4xl text-crimson">3</dt>
+                  <dd className="text-sm text-stone-600">Aktiva lag</dd>
+                </div>
+                <div>
+                  <dt className="font-display text-4xl text-crimson">100%</dt>
+                  <dd className="text-sm text-stone-600">Gemenskap</dd>
+                </div>
+              </dl>
             </div>
-            <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-stone-200 pt-6">
-              <div>
-                <dt className="font-display text-4xl text-crimson">35+</dt>
-                <dd className="text-sm text-stone-600">År av fotboll</dd>
+
+            <div className="hidden lg:col-span-5 lg:block lg:-translate-y-8">
+              <div className="relative mx-auto max-w-lg pr-3 pb-3">
+                {/* Dekorativ asymmetrisk accentram (vinröd & guld) */}
+                <div
+                  aria-hidden="true"
+                  className=" -top-2.5 -left-2.5 absolute h-20 w-20 rounded-tl-2xl border-t-2 border-l-2 border-gold/70"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl border border-gold/40 bg-gradient-to-br from-crimson via-crimson-dark to-stone-900 shadow-lg"
+                />
+
+                {/* Huvudkort med bild & varm färgtoning */}
+                <div className="relative overflow-hidden rounded-2xl border border-stone-200/80 bg-stone-900 shadow-xl">
+                  <div className="relative aspect-[4/3] w-full">
+                    <Image
+                      src={images.heroGoal}
+                      alt="Fotboll i målnätet för FC Växjö"
+                      width={1024}
+                      height={682}
+                      preload
+                      className="h-full w-full object-cover object-right contrast-[1.04] saturate-[1.05]"
+                    />
+                    {/* Subtil varm toning som mjukar upp den kalla blå himlen */}
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-0 bg-amber-900/10 mix-blend-multiply"
+                    />
+                    {/* Varm/vinröd gradient i nederkant */}
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-0 bg-gradient-to-t from-stone-950/90 via-crimson-dark/35 to-transparent"
+                    />
+                  </div>
+
+                  {/* Flytande badge i nederkant */}
+                  <div className="absolute inset-x-4 bottom-4">
+                    {nextMatch && nextMatchDate ? (
+                      <Link
+                        href="/matcher"
+                        className="group block rounded-xl border border-white/15 bg-white/95 p-3.5 shadow-lg backdrop-blur-sm transition hover:border-crimson/40 hover:bg-white"
+                      >
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-crimson">
+                            <span className="h-2 w-2 rounded-full bg-crimson" />
+                            Nästa match · {nextMatchDate.fullLabel} kl. {nextMatch.time}
+                          </span>
+                          {nextMatch.group ? (
+                            <span className="rounded bg-red-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-crimson">
+                              {nextMatch.group}
+                            </span>
+                          ) : null}
+                        </div>
+                        <p className="mt-1 font-display text-lg uppercase tracking-wide text-stone-900 group-hover:text-crimson">
+                          {nextMatch.home} <span className="text-stone-400">mot</span>{" "}
+                          {nextMatch.away}
+                        </p>
+                        <p className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-gold-dark">
+                          {nextMatch.place}
+                        </p>
+                      </Link>
+                    ) : (
+                      <div className="rounded-xl border border-white/15 bg-white/95 p-3.5 shadow-lg backdrop-blur-sm">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-crimson">
+                          Hemmaplan · {site.pitchName}
+                        </p>
+                        <p className="mt-1 font-display text-lg uppercase tracking-wide text-stone-900">
+                          FC Växjö · Gemenskap sedan {site.founded}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
-              <div>
-                <dt className="font-display text-4xl text-crimson">3</dt>
-                <dd className="text-sm text-stone-600">Aktiva lag</dd>
-              </div>
-              <div>
-                <dt className="font-display text-4xl text-crimson">100%</dt>
-                <dd className="text-sm text-stone-600">Gemenskap</dd>
-              </div>
-            </dl>
+            </div>
           </div>
         </Container>
       </section>

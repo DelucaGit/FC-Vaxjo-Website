@@ -4,6 +4,7 @@
  * Generated portraits of named people are not used here.
  */
 export const images = {
+  heroGoal: "/images/hero-goal.jpg",
   crest:
     "https://lh3.googleusercontent.com/aida-public/AB6AXuDy9qrbaqXu5OxFeHj2I3PpNocdLvVvl6XYFlbAogDcxbc0kRC2gXC74QxVGXUzaHm9Z1-CtqP0kVCrOaveVSn6_LvfcivcIhtlyy9kNcZ9XQvMyqA5Yw3eVfqXxskZzBflFIPUgNfLOO_AMVOQfz7d7wjzqn_NeVpjpsMXHyQzTD-M836TqlpOiTvVanrcvlNoVKQWImI4XHXc-9aGQ2YHPogd17nyvcJEhTP9_SNe0QS2rTeK8WEI",
   indoorMatch:
