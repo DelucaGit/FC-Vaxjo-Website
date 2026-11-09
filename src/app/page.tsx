@@ -1,11 +1,16 @@
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { MailForm } from "@/components/MailForm";
+import { MatchList } from "@/components/MatchList";
 import { awards, partners } from "@/data/clubContent";
+import { getUpcomingMatches } from "@/data/matches";
 import { teams } from "@/data/teams";
 import { phoneHref, site } from "@/lib/site";
 
 export default function HomePage() {
+  const upcomingMatches = getUpcomingMatches();
+  const previewMatches = upcomingMatches.slice(0, 4);
+
   return (
     <>
       <section className="border-b border-stone-200 bg-white">
@@ -24,14 +29,20 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href="/traningstider"
+                href="/matcher"
                 className="rounded-md bg-crimson px-5 py-3 text-sm font-semibold uppercase tracking-wider text-white hover:bg-crimson-dark"
+              >
+                Kommande matcher
+              </Link>
+              <Link
+                href="/traningstider"
+                className="rounded-md border border-crimson px-5 py-3 text-sm font-semibold uppercase tracking-wider text-crimson hover:bg-red-50"
               >
                 Se träningstider
               </Link>
               <Link
                 href="/bli-medlem#sponsra"
-                className="rounded-md border border-crimson px-5 py-3 text-sm font-semibold uppercase tracking-wider text-crimson hover:bg-red-50"
+                className="rounded-md border border-stone-300 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-stone-700 hover:bg-stone-50"
               >
                 Bli sponsor
               </Link>
@@ -50,6 +61,38 @@ export default function HomePage() {
                 <dd className="text-sm text-stone-600">Gemenskap</dd>
               </div>
             </dl>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-b border-stone-200 bg-stone-50 py-16" id="matcher">
+        <Container>
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-dark">
+                Spelschema
+              </p>
+              <h2 className="mt-2 font-display text-4xl uppercase tracking-wide text-crimson">
+                Kommande matcher
+              </h2>
+              <p className="mt-2 max-w-2xl text-stone-700">
+                Här visas våra närmaste matcher med tid, plan och matchnummer. Resultat publiceras
+                på matchsidan efter spelad match.
+              </p>
+            </div>
+            <Link
+              href="/matcher"
+              className="shrink-0 rounded-md bg-crimson px-4 py-2.5 text-sm font-semibold uppercase tracking-wider text-white hover:bg-crimson-dark"
+            >
+              Se alla matcher & resultat ({upcomingMatches.length})
+            </Link>
+          </div>
+
+          <div className="mt-8">
+            <MatchList
+              matches={previewMatches}
+              emptyMessage="Inga kommande matcher är inlagda just nu."
+            />
           </div>
         </Container>
       </section>
