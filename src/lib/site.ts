@@ -31,6 +31,7 @@ export const mapsEmbedUrl =
 
 export const navLinks = [
   { href: "/", label: "Hem" },
+  { href: "/matcher", label: "Matcher" },
   { href: "/traningstider", label: "Träningstider" },
   { href: "/om-oss", label: "Om oss" },
   { href: "/kontakt", label: "Kontakt" },

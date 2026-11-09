@@ -3,6 +3,7 @@ import { partners } from "@/data/clubContent";
 import { phoneHref, site } from "@/lib/site";
 
 const quickLinks = [
+  { href: "/matcher", label: "Matcher och resultat" },
   { href: "/traningstider", label: "Träningstider" },
   { href: "/om-oss", label: "Om klubben och historik" },
   { href: "/bli-medlem", label: "Bli medlem" },
