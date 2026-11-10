@@ -111,15 +111,15 @@ export function MatchList({
               </div>
             </div>
 
-            <div className="w-full sm:w-auto shrink-0">
-              <div className="grid grid-cols-[1fr_4rem_1fr] items-center rounded-lg bg-stone-50 px-3.5 py-2.5 sm:grid-cols-[5.5rem_7rem_13.5rem] sm:bg-transparent sm:p-0">
-                <div className="flex min-w-0 flex-col items-start text-left">
+            <div className="w-full shrink-0 sm:w-[30rem]">
+              <div className="grid grid-cols-[minmax(0,1fr)_4.5rem_minmax(0,1fr)] items-center gap-x-2 rounded-lg bg-stone-50 px-3.5 py-2.5 sm:grid-cols-[minmax(0,1fr)_5.5rem_minmax(0,1fr)] sm:gap-x-3 sm:bg-transparent sm:p-0">
+                <div className="flex min-w-0 flex-col items-end text-right">
                   <span className="inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider text-stone-500">
                     <HomeIcon className="h-3 w-3 text-crimson" />
                     Hemma
                   </span>
                   <span
-                    className={` whitespace-nowrap font-display text-lg uppercase leading-tight sm:text-xl ${
+                    className={`break-words text-balance font-display text-lg uppercase leading-tight sm:text-xl ${
                       clubIsHome ? "text-crimson" : "text-stone-900"
                     }`}
                   >
@@ -127,9 +127,9 @@ export function MatchList({
                   </span>
                 </div>
 
-                <div className="flex items-center justify-center px-2">
+                <div className="flex items-center justify-center">
                   {completed ? (
-                    <span className="inline-flex items-center justify-center rounded-md bg-crimson px-2.5 py-1 font-display text-lg tracking-wider text-white sm:text-xl">
+                    <span className="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-crimson px-2 py-1 font-display text-lg tracking-wider text-white sm:text-xl">
                       {match.homeScore} – {match.awayScore}
                     </span>
                   ) : (
@@ -145,7 +145,7 @@ export function MatchList({
                     Borta
                   </span>
                   <span
-                    className={`whitespace-nowrap font-display text-lg uppercase leading-tight sm:text-xl ${
+                    className={`break-words text-balance font-display text-lg uppercase leading-tight sm:text-xl ${
                       clubIsAway ? "text-crimson" : "text-stone-900"
                     }`}
                   >
